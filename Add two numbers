@@ -1,0 +1,21 @@
+        ListNode *head= NULL;
+        ListNode **current=&head;
+        ListNode *temp1=l1;
+        ListNode *temp2=l2;
+        int carry=0;
+        
+        while(temp1!=NULL || temp2!=NULL)
+        {
+            int x=(temp1!=NULL)?temp1->val:0;
+            int y=(temp2!=NULL)?temp2->val:0;
+             int sum=x+y+carry;
+            carry=sum/10;
+            (*current)= new ListNode(sum%10);
+            current=&((*current)->next);
+            if(temp1!=NULL)temp1=temp1->next;
+            if(temp2!=NULL)temp2=temp2->next;
+        }
+        if(carry!=0)
+            (*current)= new ListNode(carry);
+       
+        return head;

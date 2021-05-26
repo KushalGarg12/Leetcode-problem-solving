@@ -1,0 +1,22 @@
+       int n=height.size();
+        
+        int i=0,j=n-1;
+        int len=j;
+        int area=0;
+        while(i<j)
+        {
+            if(height[i]<=height[j])
+            {
+                area=max(area,height[i]*len);
+                i++;
+            }
+            else
+            {
+                area=max(area,height[j]*len);
+                j--;
+            }
+                            len--;
+
+        }
+        
+        return area;
